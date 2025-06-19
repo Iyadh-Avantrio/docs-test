@@ -31,3 +31,4 @@ jobs:
         git add docs
         git commit -m "Auto-update pipeline docs" || echo "No changes"
         git push
+        
