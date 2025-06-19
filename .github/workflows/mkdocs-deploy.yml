@@ -4,6 +4,9 @@ on:
   push:
     branches: [main]
 
+permissions:
+  contents: write  # Required for pushing to gh-pages
+
 jobs:
   deploy:
     runs-on: ubuntu-latest
@@ -21,6 +24,10 @@ jobs:
       run: |
         pip install mkdocs mkdocstrings[python] mkdocs-material
 
-    - name: Build and deploy docs
+    - name: Deploy to GitHub Pages
+    
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       run: |
-        mkdocs gh-deploy --force
+        mkdocs gh-deploy --force --remote-branch gh-pages --remote-name origin --message "Deploy docs"
+
