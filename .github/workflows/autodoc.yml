@@ -1,0 +1,33 @@
+name: Auto-generate Pipeline Docs
+
+on:
+  push:
+    branches: [main]
+
+jobs:
+  generate-docs:
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v3
+
+    - name: Setup Python
+      uses: actions/setup-python@v4
+      with:
+        python-version: '3.11'
+
+    - name: Install pdoc
+      run: pip install pdoc
+
+    - name: Generate docs
+      run: |
+        mkdir -p docs
+        pdoc pipelines/*.py --output-dir docs
+
+    - name: Commit docs
+      run: |
+        git config user.name "github-actions"
+        git config user.email "actions@github.com"
+        git add docs
+        git commit -m "Auto-update pipeline docs" || echo "No changes"
+        git push
