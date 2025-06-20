@@ -26,9 +26,9 @@ jobs:
 
     - name: Generate Markdown Docs from Pipelines
       run: |
-        pip install pdoc==14.4.0
+        pip install pdoc
         mkdir -p docs/api-generated
-        pdoc pipelines/ --output-dir docs/api-generated --format markdown
+        pdoc pipelines/ --output-dir docs/api-generated -d markdown
 
     - name: Deploy to GitHub Pages
     
