@@ -24,11 +24,11 @@ jobs:
       run: |
         pip install mkdocs mkdocstrings[python] mkdocs-material
 
-    # - name: Generate Markdown Docs from Pipelines
-    #   run: |
-    #     pip install pdoc
-    #     mkdir -p docs/api-generated
-    #     pdoc pipelines/ --output-dir docs/api-generated -d markdown
+    - name: Generate Markdown Docs from Pipelines
+      run: |
+        pip install pdoc
+        mkdir -p docs/api-generated
+        pdoc pipelines/ --output-dir docs/api-generated --mermaid
 
     - name: Deploy to GitHub Pages
     
