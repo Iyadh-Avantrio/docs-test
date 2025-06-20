@@ -14,8 +14,8 @@ nav:
   - API Reference:
       - Pipeline A: api/pipelines.pipeline_a.md
       - Pipeline B: api/pipelines.pipeline_b.md
-      # - pipeline_a.md: api-generated/pipeline_a.md
-      # - pipeline_b.md: api-generated/pipeline_b.md
+      - pipeline_a.md: api-generated/pipeline_a.md
+      - pipeline_b.md: api-generated/pipeline_b.md
 
 
 
